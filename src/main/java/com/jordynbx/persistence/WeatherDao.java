@@ -22,7 +22,6 @@ public class WeatherDao implements PropertiesLoader {
         Client client = ClientBuilder.newClient();
         String apiCall = "http://api.openweathermap.org/data/2.5/weather?q=madison&appid=" + apiKey;
         WebTarget target = client.target(apiCall);
-        log.info(apiCall);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
         Weather weather = null;
