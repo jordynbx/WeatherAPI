@@ -29,8 +29,7 @@ public class WeatherDao implements PropertiesLoader {
         try {
             weather = mapper.readValue(response, Weather.class);
         } catch (JsonProcessingException e) {
-            //TODO set up logging and write this to the log
-            e.printStackTrace();
+            log.error(e);
         }
         return weather;
     }
